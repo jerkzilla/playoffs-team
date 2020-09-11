@@ -15,6 +15,30 @@ Player.create(firstName: "Big", lastName: "Daddy", primaryPosition: "C", ptsPerG
 
 
 
-# url = "http://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/nba/current/player_stats_totals.json"
-# info = HTTParty.get(url)
-# def get_player_id
+ url = "http://3de422ea-848f-4ff7-9194-c9f1fd:MYSPORTSFEEDS@api.mysportsfeeds.com/v2.1/pull/nba/current/player_stats_totals.json"
+info = HTTParty.get(url)
+ 
+info["playerStatsTotals"].each do |p|
+    firstName = p["player"]["firstName"]
+    lastName = p["player"]["lastName"]
+    primaryPosition = p["player"]["primaryPosition"]
+    ptsPerGame = p["player"]["ptsPerGame"]
+
+    # if p["player"]["officialImageSrc"] == nil
+    #     image = "https://ibb.co/9HVY1QD"
+    # else
+    #     image = p["player"]["officialImageSrc"]
+    # end
+
+    player = Player.new(
+    firstName: firstName,
+    lastName: lastName,
+    primaryPosition: primaryPosition,
+    ptsPerGame: ptsPerGame)
+
+    player.save
+
+
+
+end
+    
