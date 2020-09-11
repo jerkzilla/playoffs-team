@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Player.create(firstName: "JJ", lastName: "Marshall", primaryPosition: "PG", ptsPerGame: 23)
-Player.create(firstName: "Matry", lastName: "Marshall", primaryPosition: "SG", ptsPerGame: 33)
-Player.create(firstName: "Jordie", lastName: "Harris", primaryPosition: "SF", ptsPerGame: 13)
-Player.create(firstName: "Lori", lastName: "Corbell", primaryPosition: "Pf", ptsPerGame: 20)
-Player.create(firstName: "Big", lastName: "Daddy", primaryPosition: "C", ptsPerGame: 21)
+# Player.create(firstName: "JJ", lastName: "Marshall", primaryPosition: "PG", ptsPerGame: 23)
+# Player.create(firstName: "Matry", lastName: "Marshall", primaryPosition: "SG", ptsPerGame: 33)
+# Player.create(firstName: "Jordie", lastName: "Harris", primaryPosition: "SF", ptsPerGame: 13)
+# Player.create(firstName: "Lori", lastName: "Corbell", primaryPosition: "Pf", ptsPerGame: 20)
+# Player.create(firstName: "Big", lastName: "Daddy", primaryPosition: "C", ptsPerGame: 21)
 
 
 
@@ -22,7 +22,7 @@ info["playerStatsTotals"].each do |p|
     firstName = p["player"]["firstName"]
     lastName = p["player"]["lastName"]
     primaryPosition = p["player"]["primaryPosition"]
-    ptsPerGame = p["player"]["ptsPerGame"]
+    ptsPerGame = p["stats"]["offense"]["ptsPerGame"]
 
     # if p["player"]["officialImageSrc"] == nil
     #     image = "https://ibb.co/9HVY1QD"
