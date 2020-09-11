@@ -25,4 +25,4 @@
 
 # Ignore master key for decrypting credentials and more.
 /playoffs-team-backend/config/master.key
-/playoffs-team-backend/.env
+/playoffs-team-backend/config/local_env.yml

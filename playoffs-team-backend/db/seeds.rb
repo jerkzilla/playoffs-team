@@ -14,8 +14,10 @@
 
 
 
+byebug
+#  url = "http://3de422ea-848f-4ff7-9194-c9f1fd:MYSPORTSFEEDS@api.mysportsfeeds.com/v2.1/pull/nba/current/player_stats_totals.json"
+url = "http://#{ENV['API_KEY']}:MYSPORTSFEEDS@api.mysportsfeeds.com/v2.1/pull/nba/current/player_stats_totals.json"
 
- url = "http://3de422ea-848f-4ff7-9194-c9f1fd:MYSPORTSFEEDS@api.mysportsfeeds.com/v2.1/pull/nba/current/player_stats_totals.json"
 info = HTTParty.get(url)
  
 info["playerStatsTotals"].each do |p|
