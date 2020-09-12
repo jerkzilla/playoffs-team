@@ -10,13 +10,14 @@ class TeamsController < ApplicationController
 
   # GET /teams/1
   def show
-    render json: @team
+    render json: @team.players
+    
   end
 
   # POST /teams
   def create
     @team = Team.new(team_params)
-
+    @team.players.build(player_attrs)
     if @team.save
       render json: @team, status: :created, location: @team
     else
