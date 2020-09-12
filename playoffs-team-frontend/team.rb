@@ -1,7 +1,7 @@
 class Team
     @@all_teams = []
   
-#     def initialize(name, players)
+#     def initialize(name, player)
 #       # set attr value
 #       @title = title
 #       @location = location
