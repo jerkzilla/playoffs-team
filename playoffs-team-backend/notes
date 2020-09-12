@@ -1,8 +1,5 @@
-> t2.first_player_id = t2.players[0].id
-2.7.0 :026 > t2.first_player_id
- => 1 
-2.7.0 :027 > t2.second_player_id = t2.players[1].id
-2.7.0 :028 > t2.third_player_id = t2.players[2].id
-2.7.0 :029 > t2.fourth_player_id = t2.players[3].id
-2.7.0 :030 > t2.fifth_player_id = t2.players[4].id
-2.7.0 :031 > t2.save
+t.first_player_id = t.players[0].id
+t.second_player_id = t.players[1].id
+t.third_player_id = t.players[2].id
+t.fourth_player_id = t.players[3].id
+t.fifth_player_id = t.players[4].id
