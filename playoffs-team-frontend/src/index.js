@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log(e)
     getPlayers();
 })
+
+// function createTeam() {
+//   const createTeamDiv =  document.getElementById("create-team")
+//   createTeamDiv.innerHTML = `<form>` 
+//   const newTeam = new Team{name: '', playerOne: {}, playerTwo: {}, playerThree: {}, playerFour: {}, playerFive: {}}
+//     addPlayer('onSubmit' )
+// }
  
 function getTeams() { 
     fetch(TEAMS_URL)
@@ -15,11 +22,11 @@ function getTeams() {
         console.log(teamArr)
         teamArr.forEach(function(obj) {
             const name = obj.id
-            const players = obj.first_player_id
+            const players = obj.players[0].firstName
 
             new Team(name, players)
         });
-        displayTeams()
+        displayPlayers()
     }))
 }
 
@@ -27,27 +34,36 @@ function getPlayers() {
     // query = info["playerStatsTotals"]["stats"]["offense"]["ptsPerGame"]
     fetch(PLAYERS_URL)
     .then(function(resp) {
-        return resp.json()
-    })
+        resp.json()
     .then(function(arrObjs) {
-        // document.write(arrObjs[0].firstName + arrObjs[0].lastName);
-        arrObjs.forEach(el => document.write("Name: " + el.firstName + ' ' + el.lastName + ' ' + "PPG: " + el.ptsPerGame + "<br></br>"))    
+        console.log(arrObjs)
+        const ul = document.createElement('ul')
+        arrObjs.forEach(function (element) {
+            const li =document.createElement('li')
+            li.innerText =  (`Name: ${element.firstName} ${element.lastName} PPG: ${element.ptsPerGame}`)
+            ul.appendChild(li)
+            main.appendChild(ul) 
+        })
+        // arrObjs.forEach(player => addPlayer(player));
+
     })
     
-}
+})}
 
 
-function displayTeams(){
-    document.body.innerText = ''
-    const ul = document.createElement('ul')
-    Team.all_teams.forEach(function(obj){
-        const li =document.createElement('li')
-        li.innerText = 'name: ${obj.name}'
-        ul.appendChild(li)
-        // debugger
-    })
-    main.appendChild(ul)
-}
+// this will display players from each team
+// function displayTeams(){
+//     document.body.innerText = ''
+//     const ul = document.createElement('ul')
+//     Team.all_teams.forEach(function(obj){
+//         // add sumbit as part of li
+//         const li =document.createElement('li')
+//         li.innerText = 'name: ${obj.name}'
+//         ul.appendChild(li)
+//         // debugger
+//     })
+//     main.appendChild(ul)
+// }
 
 
 // function getTeamsData() {
