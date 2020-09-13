@@ -1,5 +1,5 @@
-class Team
-    @@all_teams = []
+# class Team
+#     @@all_teams = []
   
 #     def initialize(name, player)
 #       # set attr value
