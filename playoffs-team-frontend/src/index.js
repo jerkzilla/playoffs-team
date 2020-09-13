@@ -5,7 +5,7 @@ const main = document.getElementById("main-content")
 
 document.addEventListener("DOMContentLoaded", () => {
     // console.log(e)
-    getTeams();
+    getPlayers();
 })
  
 function getTeams() { 
@@ -30,8 +30,9 @@ function getPlayers() {
         return resp.json()
     })
     .then(function(arrObjs) {
-        console.log(arrObjs);
-        })
+        // document.write(arrObjs[0].firstName + arrObjs[0].lastName);
+        arrObjs.forEach(el => document.write("Name: " + el.firstName + ' ' + el.lastName + ' ' + "PPG: " + el.ptsPerGame + "<br></br>"))    
+    })
     
 }
 
@@ -45,7 +46,7 @@ function displayTeams(){
         ul.appendChild(li)
         // debugger
     })
-    // document.getElementsByTagName('main')[0].appendChild(ul)
+    main.appendChild(ul)
 }
 
 
