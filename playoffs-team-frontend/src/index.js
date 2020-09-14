@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost:3000"
-const TEAMS_URL = `${BASE_URL}/teams`
+const TEAMS_URL = `${BASE_URL}/teams/1`
 const PLAYERS_URL = `${BASE_URL}/players`
 const main = document.getElementById("main-content")
 
@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log(e)
     getPlayers();
 })
+
+
+document.getElementsByTagName('form')[0].addEventListener
+('submit', (event)=>{
+    event.preventDefault()
+    alert('form submitted')
+} )
 
 // function createTeam() {
 //   const createTeamDiv =  document.getElementById("create-team")
@@ -16,17 +23,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // }
  
 function getTeams() { 
+    // when i changed the TEAMS URL to a specific team (/1) it returns
+    // the team in line with console.log team array
     fetch(TEAMS_URL)
     .then(resp => resp.json()
     .then (teamArr => {
-        console.log(teamArr)
+        // console.log(teamArr)
         teamArr.forEach(function(obj) {
-            const name = obj.id
-            const players = obj.players[0].firstName
-
-            new Team(name, players)
+            // debugger
+            const name = obj.lastName
+            const ptsPerGame = obj.ptsPerGame
+            const id = obj.id
+        
+        //    new Team(data)
         });
-        displayPlayers()
+        displayTeams()
     }))
 }
 
@@ -52,18 +63,18 @@ function getPlayers() {
 
 
 // this will display players from each team
-// function displayTeams(){
-//     document.body.innerText = ''
-//     const ul = document.createElement('ul')
-//     Team.all_teams.forEach(function(obj){
-//         // add sumbit as part of li
-//         const li =document.createElement('li')
-//         li.innerText = 'name: ${obj.name}'
-//         ul.appendChild(li)
-//         // debugger
-//     })
-//     main.appendChild(ul)
-// }
+function displayTeams(){
+    document.body.innerText = ''
+    const ul = document.createElement('ul')
+    Team.all_teams.forEach(function(obj){
+        // add sumbit as part of li
+        const li =document.createElement('li')
+        li.innerText = 'name: ${obj.name}'
+        ul.appendChild(li)
+        // debugger
+    })
+    main.appendChild(ul)
+}
 
 
 // function getTeamsData() {
