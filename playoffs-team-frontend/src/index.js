@@ -6,21 +6,26 @@ const main = document.getElementById("main-content")
 document.addEventListener("DOMContentLoaded", () => {
     // console.log(e)
     getPlayers();
-})
+
 
 
 document.getElementsByTagName('form')[0].addEventListener
-('submit', (event)=>{
-    event.preventDefault()
-    alert('form submitted')
-} )
+('submit', createTeam)
+// document.getElementsByTagName('name').addEventListener
+// ('submit', addPlayer) 
+})
 
-// function createTeam() {
-//   const createTeamDiv =  document.getElementById("create-team")
+function createTeam(event) {
+    // debugger
+    event.preventDefault()
+    const name = document.getElementById("name").value
+    const newTeam = new Team(name)
+
+//   const createTeamDiv =  document.getElementById("create-team").value
 //   createTeamDiv.innerHTML = `<form>` 
-//   const newTeam = new Team{name: '', playerOne: {}, playerTwo: {}, playerThree: {}, playerFour: {}, playerFive: {}}
+//   const newTeam = new Team(event)
 //     addPlayer('onSubmit' )
-// }
+}
  
 function getTeams() { 
     // when i changed the TEAMS URL to a specific team (/1) it returns
@@ -126,7 +131,7 @@ function displayTeams(){
 
 
 // function addPlayer(e) {
-//     e.preventDefault();
+//     e.preventDefault()
 
 //     fetch(PLAYERS_URL, {
 //         method: "POST",
@@ -157,4 +162,3 @@ function displayTeams(){
 //         }
 //     })
 // }
-
