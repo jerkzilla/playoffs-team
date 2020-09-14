@@ -37,8 +37,8 @@ function getTeams() {
             const name = obj.lastName
             const ptsPerGame = obj.ptsPerGame
             const id = obj.id
-        
-        //    new Team(data)
+            data = name
+            new Team(data)
         });
         displayTeams()
     }))
