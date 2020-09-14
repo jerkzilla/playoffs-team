@@ -1,6 +1,11 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :update, :destroy]
 
+  def players_by_ppg
+    @players = Player.where("pts_per_game = ?", params[:ppg_num])
+    render json: @players
+  end
+
   # GET /players
   def index
     @players = Player.all

@@ -35,8 +35,8 @@ info["playerStatsTotals"].each do |p|
     player = Player.new(
     firstName: firstName,
     lastName: lastName,
-    primaryPosition: primaryPosition,
-    ptsPerGame: ptsPerGame,
+    primary_position: primaryPosition,
+    pts_per_game: ptsPerGame,
     image_url: image)
 
     player.save

@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log(e)
     getPlayers();
 
-
-
 document.getElementsByTagName('form')[0].addEventListener
 ('submit', createTeam)
 // document.getElementsByTagName('name').addEventListener
@@ -48,7 +46,7 @@ function getTeams() {
 
 function getPlayers() {
     // query = info["playerStatsTotals"]["stats"]["offense"]["ptsPerGame"]
-    fetch(PLAYERS_URL)
+    fetch(PLAYERS_URL + '/players_by_ppg/20')
     .then(function(resp) {
         resp.json()
     .then(function(arrObjs) {
@@ -56,7 +54,7 @@ function getPlayers() {
         const ul = document.createElement('ul')
         arrObjs.forEach(function (element) {
             const li =document.createElement('li')
-            li.innerText =  (`Name: ${element.firstName} ${element.lastName} PPG: ${element.ptsPerGame}`)
+            li.innerText =  (`Name: ${element.firstName} ${element.lastName} PPG: ${element.pts_per_game}`)
             ul.appendChild(li)
             main.appendChild(ul) 
         })
