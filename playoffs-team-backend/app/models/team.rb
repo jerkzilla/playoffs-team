@@ -1,11 +1,11 @@
 class Team < ApplicationRecord
     has_many :players
 
-    belongs_to :first_player, class_name: "Player"
-    belongs_to :second_player, class_name: "Player"
-    belongs_to :third_player, class_name: "Player"
-    belongs_to :fourth_player, class_name: "Player"
-    belongs_to :fifth_player, class_name: "Player"
+    # belongs_to :first_player, class_name: "Player"
+    # belongs_to :second_player, class_name: "Player"
+    # belongs_to :third_player, class_name: "Player"
+    # belongs_to :fourth_player, class_name: "Player"
+    # belongs_to :fifth_player, class_name: "Player"
 
     def get_att
         self.attributes.map do |k,v| 
