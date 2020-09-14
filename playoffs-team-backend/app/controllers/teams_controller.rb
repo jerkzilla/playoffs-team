@@ -49,6 +49,6 @@ class TeamsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def team_params
-      params.require(:program).permit(:first_player, :second_player, :third_player, :fourth_player, :fifth_player)
+      params.require(:program).permit(:name, :first_player, :second_player, :third_player, :fourth_player, :fifth_player)
         end
 end
