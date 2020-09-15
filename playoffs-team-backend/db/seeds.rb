@@ -32,14 +32,14 @@ info["playerStatsTotals"].each do |p|
         image = p["player"]["officialImageSrc"]
     end
 
-    player = Player.new(
+    player = Player.find_or_create_by(
     firstName: firstName,
     lastName: lastName,
     primary_position: primaryPosition,
     pts_per_game: ptsPerGame,
     image_url: image)
 
-    player.save
+    # player.save
 
 
 
