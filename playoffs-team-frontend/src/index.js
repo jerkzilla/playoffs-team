@@ -12,7 +12,6 @@ document.getElementsByTagName('form')[0].addEventListener
 // ('submit', addPlayer) 
 })
 
-
 function filterPlayers(e) {
     document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
     fetch(PLAYERS_URL + 'players_by_position/' + e)
@@ -21,7 +20,6 @@ function filterPlayers(e) {
         resp.json()
     .then(function(arrObjs) {
         console.log(arrObjs)
-        
         const ul = document.createElement('ul')
         arrObjs.forEach(function (element) {
             const li =document.createElement('li')
@@ -37,22 +35,6 @@ function filterPlayers(e) {
 }
     )}
     )}
-
-
-function renderPlayer(player) {
-    const li =document.createElement('li')
-            li.innerText =  (`${player.firstName} ${player.lastName} PPG: ${player.pts_per_game}`)
-            const firstName = player.firstName
-            const lastName = player.lastName 
-            const id = player.id 
-            const ptsPerGame = player.pts_per_game
-            new Player (firstName, lastName, id, ptsPerGame)
-            ul.appendChild(li)
-            main.appendChild(ul) 
-        }
-
-
-
 
 function createTeam(event) {
     event.preventDefault()
@@ -149,4 +131,15 @@ function displayTeams(){
 
 
 
+// function renderPlayer(player) {
+//     const li =document.createElement('li')
+//             li.innerText =  (`${player.firstName} ${player.lastName} PPG: ${player.pts_per_game}`)
+//             const firstName = player.firstName
+//             const lastName = player.lastName 
+//             const id = player.id 
+//             const ptsPerGame = player.pts_per_game
+//             new Player (firstName, lastName, id, ptsPerGame)
+//             ul.appendChild(li)
+//             main.appendChild(ul) 
+//         }
 

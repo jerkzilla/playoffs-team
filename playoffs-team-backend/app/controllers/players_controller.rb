@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
   end
 
   def players_by_position
-    @players = Player.where("primary_position = ?", params[:position])
+    @players = Player.where("primary_position = ?", params[:position]).order(pts_per_game: :desc)
 
     render json: @players
   end 
