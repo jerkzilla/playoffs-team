@@ -12,109 +12,122 @@ document.getElementsByTagName('form')[0].addEventListener
 // ('submit', addPlayer) 
 })
 
+
+// refactor inner if block code into own function
+document.addEventListener('click', function(e){
+    if (e.target.matches("#add-player")){ 
+        e.preventDefault()
+        const teamArray = Team.all_teams
+        const lastTeam = teamArray[teamArray.length - 1]
+         lastTeam.player_ids.push(e.target.dataset.playerid)
+         console.log(lastTeam.player_ids)
+    }
+}) 
+
+
+const players = []
+
 function filterPlayers(e) {
-    document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+    // document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
     fetch(PLAYERS_URL + 'players_by_position/' + e)
     .then(function(resp) {
         // debugger
         resp.json()
     .then(function(arrObjs) {
         console.log(arrObjs)
-        const ul = document.createElement('ul')
         arrObjs.forEach(function (element) {
-            const li =document.createElement('li')
-            li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.pts_per_game}`)
             const firstName = element.firstName
             const lastName = element.lastName 
             const id = element.id 
             const ptsPerGame = element.pts_per_game
             new Player (firstName, lastName, id, ptsPerGame)
-            ul.appendChild(li)
-            main.appendChild(ul) 
         })
-}
-    )}
+        Player.displayPlayers()
+        // arrObjs.forEach(player => addPlayersToTeam(player));
+    })} 
     )}
 
 function createTeam(event) {
     event.preventDefault()
     const name = document.getElementById("name").value
   const newTeam = new Team(name)
-//   console.log(newTeam)
+  console.log(Team.all)
   newTeam.save
   displayTeams()
-//     addPlayer('onSubmit' )
+    // addPlayersToTeam('onSubmit')
 }
 
-// function getTeams() { 
-//     fetch(TEAMS_URL)
-//     .then(resp => resp.json()
-//     .then (teamArr => {
-//         teamArr.forEach(function(obj) {
-//             // const name = obj.lastName
-//             // const ptsPerGame = obj.ptsPerGame
-//             // const id = obj.id
-//             // data = name
-//             new Team(data)
-//         });
-//         displayTeams()
-//     }))
-// }
-
-const players = []
-
-// function addPlayersToTeam() {
-//     fetch(PLAYERS_URL + '/players_by_ppg/20')
-//     .then(function(resp) {
-//         resp.json()
-//     .then(arrObjs => {
-//         arrObjs.forEach(function(obj) {
-//             const firstName = obj.firstName
-//             const lastName = obj.lastName 
-//             const id = obj.id 
-//             const ptsPerGame = obj.pts_per_game
-//             new Player (firstName, lastName, id, ptsPerGame)
-// //         debugger
-// // const player = document.createElement('li')
-// //     players.push(this)
-// }
-//     )})
-// })}
-
-
-function getPlayers() {
-    // query = info["playerStatsTotals"]["stats"]["offense"]["ptsPerGame"]
-    fetch(PLAYERS_URL + '/players_by_ppg/20')
-    .then(function(resp) {
-        resp.json()
-    .then(function(arrObjs) {
-        console.log(arrObjs)
-        const ul = document.createElement('ul')
-        arrObjs.forEach(function (element) {
-            const li =document.createElement('li')
-            li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.pts_per_game}`)
-            const firstName = element.firstName
-            const lastName = element.lastName 
-            const id = element.id 
-            const ptsPerGame = element.pts_per_game
-            new Player (firstName, lastName, id, ptsPerGame)
-            ul.appendChild(li)
-            main.appendChild(ul) 
-        })
-        // arrObjs.forEach(player => addPlayersToTeam(player));
-    })
-})}
-// this will display players from each team
 function displayTeams(){
-    document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+    // document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
     const ul = document.createElement('ul')
    let teamName = Team.all_teams[0].name
         const li =document.createElement('li')
         li.innerText = "Your Team: " + teamName
         ul.appendChild(li)
     main.appendChild(ul)
-    getPlayers()
 }
+
+
+
+// function addPlayersToTeam() {
+   
+    //     const ul = document.createElement('ul')
+    //     debugger
+    //         const li =document.createElement('li')
+    //         li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.pts_per_game}`)
+    //         const firstName = element.firstName
+    //         const lastName = element.lastName 
+    //         const id = element.id 
+    //         const ptsPerGame = element.pts_per_game
+    //         new Player (firstName, lastName, id, ptsPerGame)
+    //         ul.appendChild(li)
+    //         main.appendChild(ul) 
+    // 
+// }
+
+
+
+function getGoodPlayers() {
+    // query = info["playerStatsTotals"]["stats"]["offense"]["ptsPerGame"]
+    fetch(PLAYERS_URL + '/players_by_ppg/20')
+    .then(function(resp) {
+        resp.json()
+    .then(function(arrObjs) {
+        console.log(arrObjs)
+        arrObjs.forEach(function (element) {
+            const firstName = element.firstName
+            const lastName = element.lastName 
+            const id = element.id 
+            const ptsPerGame = element.pts_per_game
+            new Player (firstName, lastName, id, ptsPerGame)
+        })
+        Player.displayPlayers()
+        // arrObjs.forEach(player => addPlayersToTeam(player));
+    })
+})}
+// this will display players from each team
+
+
+// function addPlayer(e) {
+//     e.preventDefault()
+
+//     fetch(PLAYERS_URL, {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify({ team_id: e.target.dataset.teamId })
+//     }).then(resp => {
+//         return resp.json()
+//     }).then(obj => {
+//         if (obj.message) {
+//             alert(obj.message)
+//         } else {
+//             renderPlayer(obj)
+//         }
+//     })
+// }
 
 
 // function getTeamsData() {

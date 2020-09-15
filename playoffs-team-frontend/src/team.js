@@ -10,7 +10,7 @@ class Team {
     // this.third_player_id = data.third_player_id
     // this.fourth_player_id = data.fourth_player_id
     // this.fifth_player_id = data.fifth_player_id
-
+    this.player_ids = []
     // this.playerOne = playerOne
     // this.playerTwo = playerTwo
     // this.playerThree = playerThree
