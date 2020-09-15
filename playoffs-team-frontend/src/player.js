@@ -1,11 +1,14 @@
 // problem: i dont need new PLAYERS, i have them already, so why do i need a class here?
 
 class Player {
+    static all_players = []
+
     constructor(firstName, lastName, id, ptsPerGame) {
         this.firstName = firstName
         this.lastName = lastName
         this.id = id
         this.ptsPerGame = ptsPerGame
+        Player.all_players.push(this)
     }
 
     fullName() {

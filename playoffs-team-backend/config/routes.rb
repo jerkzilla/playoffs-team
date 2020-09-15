@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get "players/players_by_ppg/:ppg_num", to: "players#players_by_ppg"
-
+  get "players/players_by_position/:position", to: "players#players_by_position"
 
 end

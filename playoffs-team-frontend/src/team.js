@@ -11,11 +11,11 @@ class Team {
     // this.fourth_player_id = data.fourth_player_id
     // this.fifth_player_id = data.fifth_player_id
 
-    // this.playerOne = data.playerOne
-    // this.playerTwo = data.playerTwo
-    // this.playerThree = data.playerThree
-    // this.playerFour = data.playerFour
-    // this.playerFive = data.playerFive
+    // this.playerOne = playerOne
+    // this.playerTwo = playerTwo
+    // this.playerThree = playerThree
+    // this.playerFour = playerFour
+    // this.playerFive = playerFive
     Team.all_teams.push(this)
 }
 
