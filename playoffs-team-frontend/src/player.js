@@ -35,15 +35,19 @@ class Player {
             const button = document.createElement('button')
             button.id = "add-player"
             button.innerText = "Add to Team"
+            button.type = 'submit'
             button.setAttribute('data-playerId', element.id)
             li.appendChild(button)
             ul.appendChild(li) 
-
+            
         })
-
+        
     }
 
 }
+
+// make a find by plaeyr meth
+
 
 // class Player {
     // static all_teams = []

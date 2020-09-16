@@ -18,6 +18,29 @@ class Team {
     // this.playerFive = playerFive
     Team.all_teams.push(this)
 }
+    addAndAssociateTeam(playerid) {
+        // debugger
+        console.log(this.player_ids.length)
+        if(this.player_ids.length == 4) {
+            this.player_ids.push(playerid)
+          const playerObjs = this.getPlayerNames()
+         const teamInfo = document.getElementById('teamInfo')
+         playerObjs.forEach(player => {
+             const li = document.createElement('li')
+             li.innerText = player.firstName + ' ' + player.lastName
+             teamInfo.appendChild(li)
+         })
+            
+        } else {
+            this.player_ids.push(playerid)
+        }
+        // find by or filter methods
+    }
+
+    getPlayerNames() {
+        return Player.all_players.filter(player => this.player_ids.includes(`${player.id}`))
+            // debugger
+    }
 
     static formatTeams(){
         console.log('info')

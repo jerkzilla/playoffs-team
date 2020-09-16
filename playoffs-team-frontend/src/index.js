@@ -19,11 +19,23 @@ document.addEventListener('click', function(e){
         e.preventDefault()
         const teamArray = Team.all_teams
         const lastTeam = teamArray[teamArray.length - 1]
-         lastTeam.player_ids.push(e.target.dataset.playerid)
-         debugger
+        lastTeam.addAndAssociateTeam(e.target.dataset.playerid)
+        //  lastTeam.player_ids.push(e.target.dataset.playerid)
+        //  add or create method, call on inst.
+            // debugger
+            // document.getElementById("add-player").addEventListener('click', function() {
+            //    debugger
+            //     addPlayersToTeam()
+            // })
          console.log(lastTeam.player_ids)
     }
+    // addPlayersToTeam()
 }) 
+
+
+
+
+
 
 const players = []
 
@@ -65,6 +77,7 @@ function displayTeams(){
    let teamName = Team.all_teams[0].name
         const li =document.createElement('li')
         li.innerText = "Your Team: " + teamName
+        li.id = "teamInfo"
         ul.appendChild(li)
     main.appendChild(ul)
 }
