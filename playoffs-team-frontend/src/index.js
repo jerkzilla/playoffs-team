@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // getPlayers();
 document.getElementsByTagName('form')[0].addEventListener
 ('submit', createTeam)
+// on click get values of text box
 // document.getElementsByTagName('name').addEventListener
 // ('submit', addPlayer) 
 })
-
 
 // refactor inner if block code into own function
 document.addEventListener('click', function(e){
@@ -20,10 +20,10 @@ document.addEventListener('click', function(e){
         const teamArray = Team.all_teams
         const lastTeam = teamArray[teamArray.length - 1]
          lastTeam.player_ids.push(e.target.dataset.playerid)
+         debugger
          console.log(lastTeam.player_ids)
     }
 }) 
-
 
 const players = []
 
@@ -50,6 +50,7 @@ function filterPlayers(e) {
 function createTeam(event) {
     event.preventDefault()
     const name = document.getElementById("name").value
+
   const newTeam = new Team(name)
   console.log(Team.all)
   newTeam.save
@@ -60,6 +61,7 @@ function createTeam(event) {
 function displayTeams(){
     // document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
     const ul = document.createElement('ul')
+    // 
    let teamName = Team.all_teams[0].name
         const li =document.createElement('li')
         li.innerText = "Your Team: " + teamName
