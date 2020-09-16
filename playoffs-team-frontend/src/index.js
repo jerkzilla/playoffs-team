@@ -87,7 +87,7 @@ function displayTeams(){
     // 
 // }
 
-
+ 
 
 function getGoodPlayers() {
     // query = info["playerStatsTotals"]["stats"]["offense"]["ptsPerGame"]
