@@ -18,6 +18,7 @@ class TeamsController < ApplicationController
 
   # POST /teams
   def create
+    byebug
     @team = Team.new(team_params)
     # @team.players.build(player_attrs)
     if @team.save

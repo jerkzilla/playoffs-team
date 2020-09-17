@@ -32,10 +32,16 @@ document.addEventListener('click', function(e){
     // addPlayersToTeam()
 }) 
 
-
-
-
-
+function maxTeam() {
+    if (confirm("Submit Team?")) {
+        console.log("Team has been submitted.")
+        players.push(Team.all_teams[0].player_ids)
+        // debugger
+       addTeam(players)
+      } else {
+        console.log("Cancelled submit.")
+      }
+    }    
 
 const players = []
 
@@ -121,7 +127,24 @@ function getGoodPlayers() {
     })
 })}
 // this will display players from each team
-
+function addTeam(players) {
+    fetch(TEAMS_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(players)
+    }).then(resp => {
+        return resp.json()
+    }).then(obj => {
+        if (obj.message) {
+            alert(obj.message)
+        } else {
+            displayTeams(players)
+        }
+    })
+}
 
 // function addPlayer(e) {
 //     e.preventDefault()

@@ -25,17 +25,26 @@ class Team {
             this.player_ids.push(playerid)
           const playerObjs = this.getPlayerNames()
          const teamInfo = document.getElementById('teamInfo')
+         maxTeam()
+
          playerObjs.forEach(player => {
              const li = document.createElement('li')
              li.innerText = player.firstName + ' ' + player.lastName
              teamInfo.appendChild(li)
+             console.log('5 Players added')
+            console.log(this.name)
          })
             
         } else {
             this.player_ids.push(playerid)
+            
         }
+    
+        // addTeam(this.player_ids)
         // find by or filter methods
     }
+
+
 
     getPlayerNames() {
         return Player.all_players.filter(player => this.player_ids.includes(`${player.id}`))
