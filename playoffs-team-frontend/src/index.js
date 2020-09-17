@@ -13,6 +13,8 @@ document.getElementsByTagName('form')[0].addEventListener
 // ('submit', addPlayer) 
 })
 
+
+
 // refactor inner if block code into own function
 document.addEventListener('click', function(e){
     if (e.target.matches("#add-player")){ 
@@ -36,13 +38,16 @@ function maxTeam() {
     if (confirm("Submit Team?")) {
         console.log("Team has been submitted.")
         players.push(Team.all_teams[0].player_ids)
+        players.push(Team.all_teams[0].name)
         // debugger
-       addTeam(players)
+        const yourTeam = Team.all_teams[0]
+        teamConfigBodyCreation(yourTeam)
+    //    addTeam(players)
       } else {
         console.log("Cancelled submit.")
       }
     }    
-
+const team = []
 const players = []
 
 function filterPlayers(e) {
@@ -126,18 +131,22 @@ function getGoodPlayers() {
         // arrObjs.forEach(player => addPlayersToTeam(player));
     })
 })}
-// this will display players from each team
-function addTeam(players) {
+
+function addTeam(configBody) {
+    // debugger
     fetch(TEAMS_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify(players)
+        body: JSON.stringify(configBody)
     }).then(resp => {
         return resp.json()
     }).then(obj => {
+        const tObj = Team.findTeam('name', obj.name)
+       tObj.updateAttributes(obj)
+       
         if (obj.message) {
             alert(obj.message)
         } else {
@@ -145,6 +154,42 @@ function addTeam(players) {
         }
     })
 }
+
+function teamConfigBodyCreation(team){
+        
+        const tObjJS = Team.findTeam('name', team.name)
+        // debugger
+ const configBodyObj = {}
+ configBodyObj.team = tObjJS
+ 
+
+//  configBodyObj.team.player_attributes = [{player_ids: team.player_ids}]
+//  debugger
+//  configBodyObj.player_ids = {player_ids: team.player_ids}
+//  configBodyObj.team.name = {name: team.name}
+    addTeam(configBodyObj)
+
+
+
+//     let result = {}
+//     const keys = ['first_player_id',
+// 'second_player_id',
+// 'third_player_id',
+// 'fourth_player_id',
+// 'fifth_player_id'
+// ]
+// keys.forEach((key, i) => result[key] = newTeam[i]);
+// addTeam(result)
+
+}
+//     // debugger
+//  const configBodyObj = {}
+//  configBodyObj = team
+// //  debugger
+// //  configBodyObj.player_ids = {team.player_ids}
+//  configBodyObj.team.name = {name: team.name}
+//     addTeam(team)
+//  }
 
 // function addPlayer(e) {
 //     e.preventDefault()

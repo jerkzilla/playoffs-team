@@ -44,6 +44,10 @@ class Player {
         
     }
 
+    static findPlayer(plyr) {
+        return (this.all_players.find(obj => {return obj.id === plyr.id}))
+      }
+
 }
 
 // make a find by plaeyr meth

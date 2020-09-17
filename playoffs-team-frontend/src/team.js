@@ -1,6 +1,20 @@
 class Team {
     static all_teams = []
 
+    //  function save() {
+    //     let result = {}
+    //     const keys = ['first_player_id',
+    // 'second_player_id',
+    // 'third_player_id',
+    // 'fourth_player_id',
+    // 'fifth_player_id'
+    // ]
+    // keys.forEach((key, i) => result[key] = newTeam[i]);
+    // addTeam(result)
+
+    // }
+
+
     constructor(name) {
    // this // the new obj
     this.name = name
@@ -44,15 +58,32 @@ class Team {
         // find by or filter methods
     }
 
-
-
     getPlayerNames() {
         return Player.all_players.filter(player => this.player_ids.includes(`${player.id}`))
             // debugger
     }
 
-    static formatTeams(){
-        console.log('info')
+    static findTeam(attr, attrVal) {
+        return (this.all_teams.find(obj => {return obj[attr] === attrVal}))
+        // Team.findTeam(name, team.name)
+      }
+
+     
+
+    updateAttributes(newInfo){
+        // debugger
+        this.id = newInfo.id 
+        this.players = []
+
+        newInfo.players.forEach((player) => {
+            let plObj = Player.findPlayer(player)
+
+            if(player) {
+                player
+            } else {
+                player = new Player(player, this)
+            }
+        })
 
     }
 
