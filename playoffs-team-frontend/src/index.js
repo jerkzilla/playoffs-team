@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost:3000"
-const TEAMS_URL = `${BASE_URL}/teams/1`
+const TEAMS_URL = `${BASE_URL}/teams/`
 const PLAYERS_URL = `${BASE_URL}/players/`
 const main = document.getElementById("main-content")
 

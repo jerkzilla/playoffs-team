@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
 
   # POST /teams
   def create
-    byebug
+    # byebug
     @team = Team.new(team_params)
     # @team.players.build(player_attrs)
     if @team.save
@@ -50,6 +50,6 @@ class TeamsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def team_params
-      params.require(:program).permit(:name, :first_player, :second_player, :third_player, :fourth_player, :fifth_player)
+      params.require(:team).permit(:name, :player_ids)
         end
 end
