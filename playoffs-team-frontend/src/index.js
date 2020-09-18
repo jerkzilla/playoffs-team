@@ -82,7 +82,7 @@ function createTeam(event) {
 }
 
 function displayTeams(){
-    // document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+    document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
     const ul = document.createElement('ul')
     // 
     
@@ -121,6 +121,7 @@ function renderAllTeams() {
             //    debugger
                 
             main.appendChild(ul)
+            
         })})
       })
 }

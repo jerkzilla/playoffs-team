@@ -33,6 +33,7 @@ class Player {
             const ptsPerGame = element.ptsPerGame
            
             const button = document.createElement('button')
+            
             button.id = "add-player"
             button.innerText = "Add to Team"
             button.type = 'submit'
