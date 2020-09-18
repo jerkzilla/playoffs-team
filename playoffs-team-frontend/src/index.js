@@ -103,7 +103,7 @@ function renderAllTeams() {
         teams = Team.findTeam('name', team.name)
         console.log(arrObjs)
         arrObjs.forEach(function (element) {
-            debugger
+            // debugger
             const ul = document.createElement('ul')
             const h3  =document.createElement('h3')
             let teamName = element.name
@@ -124,72 +124,6 @@ function renderAllTeams() {
         })})
       })
 }
-
-
-
-// function renderAllTeams() {
-//       document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
-//       fetch(TEAMS_URL)
-//       .then(function(resp) {
-//           resp.json()
-//       .then(function(arrObjs) {
-//           teams = Team.findTeam('name', team.name)
-//         //   team = Team.findTeam('id', 21)
-//           console.log(arrObjs)
-//           arrObjs.forEach(function (element) {
-//             //   debugger
-//               const ul = document.createElement('ul')
-//    let teamName = element.name + ": "
-//    let playersGroup = []
-//    let playerOne = element.players[0]
-//    let playerTwo = element.players[1]
-//    let playerThree = element.players[2]
-//    let playerFour = element.players[3]
-//    let playerFive = element.players[4]
-//    playersGroup.push(playerOne)
-//    playersGroup.push(playerTwo)
-//    playersGroup.push(playerThree)
-//    playersGroup.push(playerFour)
-//    playersGroup.push(playerFive)
-// //    playerFive.firstName + ' ' +  playerFive.lastName
-// //    debugger
-//    let teamInfo = playersGroup.forEach(function (element){
-//        debugger
-//        element.firstName})
-
-//         const li =document.createElement('li')
-//         li.innerText = teamName + teamInfo
-//         li.id =  
-//         ul.appendChild(li)
-//     main.appendChild(ul)
-//           })})
-//         })
-
-// }
-
-function findPlayerNames() {
-    return Player.all_players.filter(player => this.player_ids.includes(`${player.id}`))
-        // debugger
-}
-
-
-// function addPlayersToTeam() {
-   
-    //     const ul = document.createElement('ul')
-    //     debugger
-    //         const li =document.createElement('li')
-    //         li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.pts_per_game}`)
-    //         const firstName = element.firstName
-    //         const lastName = element.lastName 
-    //         const id = element.id 
-    //         const ptsPerGame = element.pts_per_game
-    //         new Player (firstName, lastName, id, ptsPerGame)
-    //         ul.appendChild(li)
-    //         main.appendChild(ul) 
-    // 
-// }
-
- 
 
 function getGoodPlayers() {
     // query = info["playerStatsTotals"]["stats"]["offense"]["ptsPerGame"]
@@ -240,76 +174,5 @@ function teamConfigBodyCreation(team){
  const configBodyObj = {}
  configBodyObj.team = tObjJS
  
-
-//  configBodyObj.team.player_attributes = [{player_ids: team.player_ids}]
-//  debugger
-//  configBodyObj.player_ids = {player_ids: team.player_ids}
-//  configBodyObj.team.name = {name: team.name}
     addTeam(configBodyObj)
-//     let result = {}
-//     const keys = ['first_player_id',
-// 'second_player_id',
-// 'third_player_id',
-// 'fourth_player_id',
-// 'fifth_player_id'
-// ]
-// keys.forEach((key, i) => result[key] = newTeam[i]);
-// addTeam(result)
 }
-//     // debugger
-//  const configBodyObj = {}
-//  configBodyObj = team
-// //  debugger
-// //  configBodyObj.player_ids = {team.player_ids}
-//  configBodyObj.team.name = {name: team.name}
-//     addTeam(team)
-//  }
-
-// function addPlayer(e) {
-//     e.preventDefault()
-
-//     fetch(PLAYERS_URL, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             "Accept": "application/json"
-//         },
-//         body: JSON.stringify({ team_id: e.target.dataset.teamId })
-//     }).then(resp => {
-//         return resp.json()
-//     }).then(obj => {
-//         if (obj.message) {
-//             alert(obj.message)
-//         } else {
-//             renderPlayer(obj)
-//         }
-//     })
-// }
-
-
-// function getTeamsData() {
-//     // fetch(TEAMS_URL).then(response => {
-//     //         return response.json()
-//     fetch(TEAMS_URL).then((res) => res.json())
-//     .then(jsonObj => {
-//       // debugger
-//         jsonObj.forEach(team => renderTeam(team));
-//     })
-// }
-
-
-
-
-
-// function renderPlayer(player) {
-//     const li =document.createElement('li')
-//             li.innerText =  (`${player.firstName} ${player.lastName} PPG: ${player.pts_per_game}`)
-//             const firstName = player.firstName
-//             const lastName = player.lastName 
-//             const id = player.id 
-//             const ptsPerGame = player.pts_per_game
-//             new Player (firstName, lastName, id, ptsPerGame)
-//             ul.appendChild(li)
-//             main.appendChild(ul) 
-//         }
-

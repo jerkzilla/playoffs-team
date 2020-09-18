@@ -62,5 +62,3 @@ class Team {
     }
 
 }
-// const teamObj = new Team(data)
-// Team.formatTeams
