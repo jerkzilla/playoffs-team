@@ -85,6 +85,7 @@ function displayTeams(){
     // document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
     const ul = document.createElement('ul')
     // 
+    
    let teamName = Team.all_teams[0].name
         const li =document.createElement('li')
         li.innerText = "Your Team: " + teamName
@@ -93,6 +94,31 @@ function displayTeams(){
     main.appendChild(ul)
 }
 
+
+function renderAllTeams() {
+      document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+      fetch(TEAMS_URL)
+      .then(function(resp) {
+          resp.json()
+      .then(function(arrObjs) {
+          teams = Team.findTeam('name', team.name)
+          console.log(arrObjs)
+          arrObjs.forEach(function (element) {
+            //   debugger
+              const ul = document.createElement('ul')
+   let teamName = element.name
+   let teamInfo = element.players[0].firstName
+   // element.players is an array of objects. cant interate
+//    debugger
+        const li =document.createElement('li')
+        li.innerText = teamName + teamInfo
+        li.id =  
+        ul.appendChild(li)
+    main.appendChild(ul)
+          })})
+        })
+
+}
 
 
 // function addPlayersToTeam() {
@@ -150,7 +176,7 @@ function addTeam(configBody) {
         if (obj.message) {
             alert(obj.message)
         } else {
-            displayTeams(players)
+            renderAllTeams(players)
         }
     })
 }
@@ -168,9 +194,6 @@ function teamConfigBodyCreation(team){
 //  configBodyObj.player_ids = {player_ids: team.player_ids}
 //  configBodyObj.team.name = {name: team.name}
     addTeam(configBodyObj)
-
-
-
 //     let result = {}
 //     const keys = ['first_player_id',
 // 'second_player_id',
@@ -180,7 +203,6 @@ function teamConfigBodyCreation(team){
 // ]
 // keys.forEach((key, i) => result[key] = newTeam[i]);
 // addTeam(result)
-
 }
 //     // debugger
 //  const configBodyObj = {}
