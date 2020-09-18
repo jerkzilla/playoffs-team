@@ -1,39 +1,14 @@
 class Team {
     static all_teams = []
 
-    //  function save() {
-    //     let result = {}
-    //     const keys = ['first_player_id',
-    // 'second_player_id',
-    // 'third_player_id',
-    // 'fourth_player_id',
-    // 'fifth_player_id'
-    // ]
-    // keys.forEach((key, i) => result[key] = newTeam[i]);
-    // addTeam(result)
-
-    // }
-
-
     constructor(name) {
    // this // the new obj
     this.name = name
-    // this.player_id = player_id
-    // this.first_player_id = data.first_player_id
-    // this.second_player_id = data.second_player_id
-    // this.third_player_id = data.third_player_id
-    // this.fourth_player_id = data.fourth_player_id
-    // this.fifth_player_id = data.fifth_player_id
     this.player_ids = []
-    // this.playerOne = playerOne
-    // this.playerTwo = playerTwo
-    // this.playerThree = playerThree
-    // this.playerFour = playerFour
-    // this.playerFive = playerFive
     Team.all_teams.push(this)
-}
+    }
+
     addAndAssociateTeam(playerid) {
-        // debugger
         console.log(this.player_ids.length)
         if(this.player_ids.length == 4) {
             this.player_ids.push(playerid)
@@ -50,11 +25,9 @@ class Team {
          })
             
         } else {
-            this.player_ids.push(playerid)
-            
+            this.player_ids.push(playerid) 
         }
-    
-        // addTeam(this.player_ids)
+   
         // find by or filter methods
     }
 
@@ -76,6 +49,7 @@ class Team {
         this.players = []
 
         newInfo.players.forEach((player) => {
+            // debugger
             let plObj = Player.findPlayer(player)
 
             if(player) {

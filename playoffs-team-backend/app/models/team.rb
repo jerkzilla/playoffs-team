@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-    has_many :players
+    has_and_belongs_to_many :players
 
     # belongs_to :first_player, class_name: "Player"
     # belongs_to :second_player, class_name: "Player"

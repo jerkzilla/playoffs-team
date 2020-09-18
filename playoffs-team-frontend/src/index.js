@@ -94,30 +94,82 @@ function displayTeams(){
     main.appendChild(ul)
 }
 
-
 function renderAllTeams() {
-      document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
-      fetch(TEAMS_URL)
-      .then(function(resp) {
-          resp.json()
-      .then(function(arrObjs) {
-          teams = Team.findTeam('name', team.name)
-          console.log(arrObjs)
-          arrObjs.forEach(function (element) {
-            //   debugger
-              const ul = document.createElement('ul')
-   let teamName = element.name
-   let teamInfo = element.players[0].firstName
-   // element.players is an array of objects. cant interate
-//    debugger
-        const li =document.createElement('li')
-        li.innerText = teamName + teamInfo
-        li.id =  
-        ul.appendChild(li)
-    main.appendChild(ul)
-          })})
-        })
+    document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+    fetch(TEAMS_URL)
+    .then(function(resp) {
+        resp.json()
+    .then(function(arrObjs) {
+        teams = Team.findTeam('name', team.name)
+        console.log(arrObjs)
+        arrObjs.forEach(function (element) {
+            debugger
+            const ul = document.createElement('ul')
+            const h3  =document.createElement('h3')
+            let teamName = element.name
+            h3.innerText = teamName
+            ul.appendChild(h3)
+             
+            element.players.forEach(plObj => {
+              let playerNames =  plObj.firstName + " " + plObj.lastName
+                const li =document.createElement('li')
+                li.innerText = playerNames
+                li.id = "player-li"
+                ul.appendChild(li)
+            })
+            // element.players is an array of objects. cant interate
+            //    debugger
+                
+            main.appendChild(ul)
+        })})
+      })
+}
 
+
+
+// function renderAllTeams() {
+//       document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+//       fetch(TEAMS_URL)
+//       .then(function(resp) {
+//           resp.json()
+//       .then(function(arrObjs) {
+//           teams = Team.findTeam('name', team.name)
+//         //   team = Team.findTeam('id', 21)
+//           console.log(arrObjs)
+//           arrObjs.forEach(function (element) {
+//             //   debugger
+//               const ul = document.createElement('ul')
+//    let teamName = element.name + ": "
+//    let playersGroup = []
+//    let playerOne = element.players[0]
+//    let playerTwo = element.players[1]
+//    let playerThree = element.players[2]
+//    let playerFour = element.players[3]
+//    let playerFive = element.players[4]
+//    playersGroup.push(playerOne)
+//    playersGroup.push(playerTwo)
+//    playersGroup.push(playerThree)
+//    playersGroup.push(playerFour)
+//    playersGroup.push(playerFive)
+// //    playerFive.firstName + ' ' +  playerFive.lastName
+// //    debugger
+//    let teamInfo = playersGroup.forEach(function (element){
+//        debugger
+//        element.firstName})
+
+//         const li =document.createElement('li')
+//         li.innerText = teamName + teamInfo
+//         li.id =  
+//         ul.appendChild(li)
+//     main.appendChild(ul)
+//           })})
+//         })
+
+// }
+
+function findPlayerNames() {
+    return Player.all_players.filter(player => this.player_ids.includes(`${player.id}`))
+        // debugger
 }
 
 
@@ -141,7 +193,7 @@ function renderAllTeams() {
 
 function getGoodPlayers() {
     // query = info["playerStatsTotals"]["stats"]["offense"]["ptsPerGame"]
-    fetch(PLAYERS_URL + '/players_by_ppg/20')
+    fetch(PLAYERS_URL + 'players_by_ppg/20')
     .then(function(resp) {
         resp.json()
     .then(function(arrObjs) {

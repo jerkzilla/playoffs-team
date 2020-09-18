@@ -10,7 +10,7 @@ class Player {
         Player.all_players.push(this)
     }
 
-    fullName() {
+   static fullName() {
         return `${this.firstName} ${this.lastName}`
     }
 
