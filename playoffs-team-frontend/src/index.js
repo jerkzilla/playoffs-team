@@ -49,7 +49,7 @@ function displayTeams(){
 
     let teamName = Team.all_teams[0].name
         const p =document.createElement('p')
-        p.innerText = "Your Team: " + teamName
+        p.innerText =  " ' "+ teamName + " ' "
     main.appendChild(p)
 }
 
