@@ -61,7 +61,8 @@ function renderAllTeams() {
         console.log(arrObjs)
         arrObjs.forEach(function (element) {
             const ul = document.createElement('ul')
-            const h3  =document.createElement('h1')
+            const h3  =document.createElement('h6')
+            ul.class = "teams"
             let teamName = element.name
             h3.innerText = teamName
             ul.appendChild(h3)
@@ -72,7 +73,9 @@ function renderAllTeams() {
                 li.innerText = playerNames
                 li.id = "player-li"
                 ul.appendChild(li)
-            })      
+            })     
+                document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())
+
             main.appendChild(ul)
         })})
       })

@@ -19,6 +19,7 @@ class Player {
         let ul = document.getElementById('player-placeholder')
         if(ul == null){
              ul = document.createElement('ul')
+             ul.class = "players"
             ul.id = 'player-placeholder'
         main.appendChild(ul)
       }  else {
