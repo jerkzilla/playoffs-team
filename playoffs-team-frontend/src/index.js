@@ -45,6 +45,8 @@ function createTeam(event) {
 
 function displayTeams(){
     document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+    document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())
+
     let teamName = Team.all_teams[0].name
         const p =document.createElement('p')
         p.innerText = "Your Team: " + teamName
@@ -58,12 +60,17 @@ function renderAllTeams() {
         resp.json()
     .then(function(arrObjs) {
         teams = Team.findTeam('name', team.name)
+
         console.log(arrObjs)
+        const p = document.createElement('p')
+        main.appendChild(p)
+        p.innerText = "ALL TEAMS"
         arrObjs.forEach(function (element) {
             const ul = document.createElement('ul')
             const h3  =document.createElement('h6')
             ul.class = "teams"
             let teamName = element.name
+            
             h3.innerText = teamName
             ul.appendChild(h3)
              
@@ -75,9 +82,10 @@ function renderAllTeams() {
                 ul.appendChild(li)
             })     
                 document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())
-
             main.appendChild(ul)
         })})
+        
+
       })
 }
 
