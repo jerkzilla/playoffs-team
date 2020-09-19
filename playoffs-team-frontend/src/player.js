@@ -26,7 +26,7 @@ class Player {
         }
         Player.all_players.forEach(function (element) {
             const li =document.createElement('li')
-            li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.ptsPerGame}`)
+            li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.ptsPerGame}   `)
             const firstName = element.firstName
             const lastName = element.lastName 
             const id = element.id 
@@ -35,7 +35,7 @@ class Player {
             const button = document.createElement('button')
             
             button.id = "add-player"
-            button.innerText = "Add to Team"
+            button.innerText = "Add"
             button.type = 'submit'
             button.setAttribute('data-playerId', element.id)
             li.appendChild(button)

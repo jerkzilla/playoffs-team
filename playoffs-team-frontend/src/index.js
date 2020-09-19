@@ -83,15 +83,13 @@ function createTeam(event) {
 
 function displayTeams(){
     document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
-    const ul = document.createElement('ul')
+    // const p = document.createElement('p')
     // 
     
    let teamName = Team.all_teams[0].name
-        const li =document.createElement('li')
-        li.innerText = "Your Team: " + teamName
-        li.id = "teamInfo"
-        ul.appendChild(li)
-    main.appendChild(ul)
+        const p =document.createElement('p')
+        p.innerText = "Your Team: " + teamName
+    main.appendChild(p)
 }
 
 function renderAllTeams() {
@@ -105,7 +103,7 @@ function renderAllTeams() {
         arrObjs.forEach(function (element) {
             // debugger
             const ul = document.createElement('ul')
-            const h3  =document.createElement('h3')
+            const h3  =document.createElement('h1')
             let teamName = element.name
             h3.innerText = teamName
             ul.appendChild(h3)
