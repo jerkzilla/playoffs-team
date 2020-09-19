@@ -15,6 +15,8 @@ class Player {
     }
 
     static displayPlayers() {
+        document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+
         const main = document.getElementById("main-content")
         let ul = document.getElementById('player-placeholder')
         if(ul == null){
@@ -25,7 +27,9 @@ class Player {
       }  else {
             ul.innerHTML = ''
         }
+        
         Player.all_players.forEach(function (element) {
+           
             const li =document.createElement('li')
             li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.ptsPerGame}   `)
             const firstName = element.firstName
@@ -39,6 +43,7 @@ class Player {
             button.innerText = "Add"
             button.type = 'submit'
             button.setAttribute('data-playerId', element.id)
+            
             li.appendChild(button)
             ul.appendChild(li) 
             

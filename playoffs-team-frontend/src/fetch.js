@@ -12,6 +12,7 @@ function getGoodPlayers() {
           const ptsPerGame = element.pts_per_game
           new Player (firstName, lastName, id, ptsPerGame)
       })
+      
       Player.displayPlayers()
       // arrObjs.forEach(player => addPlayersToTeam(player));
   })
@@ -49,12 +50,15 @@ function filterPlayers(e) {
   .then(function(arrObjs) {
       console.log(arrObjs)
       arrObjs.forEach(function (element) {
+          
           const firstName = element.firstName
           const lastName = element.lastName 
           const id = element.id 
           const ptsPerGame = element.pts_per_game
           new Player (firstName, lastName, id, ptsPerGame)
       })
+      document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+
       Player.displayPlayers()
   })} 
   )}
