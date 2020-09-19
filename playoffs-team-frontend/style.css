@@ -294,12 +294,12 @@
 
   div.intro {
     position: relative;
-   font-size: 15px;
+   font-size: 16px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 2px;
-    font-family: "Open Sans", sans-serif;
-    text-shadow: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+    text-shadow: #e47070;
 
   }
 
@@ -332,7 +332,7 @@
     border-radius: 1px;
     display: inline-block;
     /* font-style: italic; */
-    font-family: impact, Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
   }
   .zig-zag { border: none; width: 50%; margin: auto; margin-top: 5%; margin-bottom: 5%; height: 40px; background: linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -20px 0, linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -20px 0, linear-gradient(315deg, #ECEDDC 25%, transparent 25%), linear-gradient(45deg, #ECEDDC 25%, transparent 25%); background-size: 40px 40px; background-color: #EC173A;}
 
@@ -354,6 +354,8 @@ div[class=Thx] {
   border-radius: 8px;
   max-width: 100%;
 height: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+
 }
 
 img {
