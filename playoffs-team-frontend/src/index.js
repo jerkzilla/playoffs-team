@@ -75,10 +75,15 @@ function renderAllTeams() {
             ul.appendChild(h3)
              
             element.players.forEach(plObj => {
-              let playerNames =  plObj.firstName + " " + plObj.lastName
+                // debugger
+                const a = document.createElement('href')
+                a.class = "pl_photos"
+                a.innerHTML = (`<a href ="${plObj.image_url}" target="_blank" class ="pl_photos"> Photo </a>`)    
+              let playerNames =  plObj.firstName + " " + plObj.lastName 
                 const li =document.createElement('li')
                 li.innerText = playerNames
                 li.id = "player-li"
+                li.appendChild(a)
                 ul.appendChild(li)
             })     
                 document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())

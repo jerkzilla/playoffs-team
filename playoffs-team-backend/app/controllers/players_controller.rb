@@ -11,6 +11,16 @@ class PlayersController < ApplicationController
     render json: @players
   end
 
+  def players_by_rpg
+    @players = Player.where("reb_per_game > ?", params[:rpg_num]).order(reb_per_game: :desc)
+    render json: @players
+  end
+
+  def players_by_fgp
+    @players = Player.where("fg_pct > ?", params[:fgp_num]).order(fg_pct: :desc)
+    render json: @players
+  end
+
   def players_by_position
     @players = Player.where("primary_position = ?", params[:position]).order(pts_per_game: :desc)
 
