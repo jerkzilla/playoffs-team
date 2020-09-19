@@ -6,6 +6,11 @@ class PlayersController < ApplicationController
     render json: @players
   end
 
+  def players_by_apg
+    @players = Player.where("ast_per_game > ?", params[:apg_num]).order(ast_per_game: :desc)
+    render json: @players
+  end
+
   def players_by_position
     @players = Player.where("primary_position = ?", params[:position]).order(pts_per_game: :desc)
 
@@ -22,31 +27,6 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find_by_id(params[:id])
     render json: @player
-  end
-
-  # POST /players
-  def create
-    @player = Player.new(player_params)
-    #  @player.team.build 
-    if @player.save
-      render json: @player, status: :created, location: @player
-    else
-      render json: @player.errors, status: :unprocessable_entity
-    end
-  end
- 
-  # PATCH/PUT /players/1
-  def update
-    if @player.update(player_params)
-      render json: @player
-    else
-      render json: @player.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /players/1
-  def destroy
-    @player.destroy
   end
 
   private

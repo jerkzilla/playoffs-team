@@ -24,6 +24,9 @@ info["playerStatsTotals"].each do |p|
     lastName = p["player"]["lastName"]
     primaryPosition = p["player"]["primaryPosition"]
     ptsPerGame = p["stats"]["offense"]["ptsPerGame"]
+    astPerGame = p["stats"]["offense"]["astPerGame"]
+    rebPerGame = p["stats"]["rebounds"]["rebPerGame"]
+    fgPct = p["stats"]["fieldGoals"]["fgPct"]
     image = ""
 
     if p["player"]["officialImageSrc"] == nil
@@ -37,6 +40,9 @@ info["playerStatsTotals"].each do |p|
     lastName: lastName,
     primary_position: primaryPosition,
     pts_per_game: ptsPerGame,
+    ast_per_game: astPerGame,
+    reb_per_game: rebPerGame,
+    fg_pct: fgPct,
     image_url: image)
 
     # player.save

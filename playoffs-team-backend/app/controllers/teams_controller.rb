@@ -4,7 +4,6 @@ class TeamsController < ApplicationController
   # GET /teams
   def index
     @teams = Team.all
-
     render json: @teams
   end
 
@@ -12,8 +11,7 @@ class TeamsController < ApplicationController
   def show
     @teams = Team.all 
     render json: @teams
-    # render json: @team.players
-    
+    # render json: @team.players  
   end
 
   # POST /teams
@@ -28,27 +26,16 @@ class TeamsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /teams/1
-  def update
-    if @team.update(team_params)
-      render json: @team
-    else
-      render json: @team.errors, status: :unprocessable_entity
-    end
-  end
-
   # DELETE /teams/1
   def destroy
     @team.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def team_params
       params.require(:team).permit(:name, player_ids: [])
         end

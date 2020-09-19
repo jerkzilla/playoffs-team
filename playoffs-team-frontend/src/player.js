@@ -2,11 +2,12 @@
 class Player {
     static all_players = []
 
-    constructor(firstName, lastName, id, ptsPerGame) {
+    constructor(firstName, lastName, id, ptsPerGame, astPerGame) {
         this.firstName = firstName
         this.lastName = lastName
         this.id = id
         this.ptsPerGame = ptsPerGame
+        this.astPerGame = astPerGame
         Player.all_players.push(this)
     }
 
@@ -31,11 +32,12 @@ class Player {
         Player.all_players.forEach(function (element) {
            
             const li =document.createElement('li')
-            li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.ptsPerGame}   `)
+            li.innerText =  (`${element.firstName} ${element.lastName} PPG: ${element.ptsPerGame} APG: ${element.astPerGame}  `)
             const firstName = element.firstName
             const lastName = element.lastName 
             const id = element.id 
             const ptsPerGame = element.ptsPerGame
+            const astPerGame = element.astPerGame
            
             const button = document.createElement('button')
             
