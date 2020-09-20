@@ -14,7 +14,8 @@ p
         {
             font-family: "Open Sans", Helvetica, sans-serif;                font-size: 30pt;
             color: #ffffff;
-            padding: 2.25%; 18px / 800px
+            padding: 2.25%; 
+            /* 18px / 800px */
         }
 
 
@@ -233,6 +234,17 @@ border-radius: 2px;
 box-sizing: border-box;
 }
 
+form#create-team {
+  width: 70%;
+  padding: 20px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  }
+  
+
 .intro {
 width: 50%;
 padding: 12px 20px;
@@ -308,11 +320,10 @@ column-count: 3;
 div[class=Thx] {
 margin-top: 4px;
 color: white;
-text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-
+text-shadow: .5px .5px 1px #000000, 0 0 10px #00e1ff, 0 0 2px #34d3c3;
 color: white;
 padding: 2px 4px;
-margin: 8px 0;
+margin: px 0;
 border: none;
 font-size: 15px;
 text-align: center;

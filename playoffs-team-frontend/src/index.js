@@ -46,11 +46,12 @@ function createTeam(event) {
 function displayTeams(){
     document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
     document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())
-
+    
     let teamName = Team.all_teams[0].name
         const p =document.createElement('p')
         p.innerText =  " ' "+ teamName + " ' "
-    main.appendChild(p)
+   
+        main.appendChild(p)
 }
 
 function renderAllTeams() {
