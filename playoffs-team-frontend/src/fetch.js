@@ -17,6 +17,7 @@ function getGoodPlayers() {
             const imgUrl = element.image_url
             new Player (firstName, lastName, id, ptsPerGame, astPerGame, rebPerGame, fgPct, imgUrl)
       })
+      
       Player.displayPlayers()
   })
 })}
@@ -38,6 +39,7 @@ function getGoodPassers() {
             const fgPct = element.fg_pct
             const imgUrl = element.image_url
             new Player (firstName, lastName, id, ptsPerGame, astPerGame, rebPerGame, fgPct, imgUrl)
+       
         })
         Player.displayPlayers()
     })
@@ -128,7 +130,6 @@ function filterPlayers(e) {
         const imgUrl = element.image_url
         new Player (firstName, lastName, id, ptsPerGame, astPerGame, rebPerGame, fgPct, imgUrl)
       })
-      document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
 
       Player.displayPlayers()
   })} 

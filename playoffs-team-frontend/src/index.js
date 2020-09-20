@@ -8,6 +8,10 @@ document.getElementsByTagName('form')[0].addEventListener
 ('submit', createTeam)
 })
 
+window.onload=function(){
+    document.getElementById("my_audio").play();
+  }
+
 // refactor inner if block code into own function
 document.addEventListener('click', function(e){
     if (e.target.matches("#add-player")){ 
@@ -17,6 +21,7 @@ document.addEventListener('click', function(e){
         lastTeam.addAndAssociateTeam(e.target.dataset.playerid)
          console.log(lastTeam.player_ids)
     }
+    
 }) 
 
 function maxTeam() {
@@ -84,10 +89,11 @@ function renderAllTeams() {
                 const li =document.createElement('li')
                 li.innerText = playerNames
                 li.id = "player-li"
+                
                 li.appendChild(plImg)
                 ul.appendChild(li)
             })     
-                document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())
+                // document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())
             main.appendChild(ul)
         })})
         

@@ -20,20 +20,20 @@ class Player {
 
     static displayPlayers() {
         document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
-
         const main = document.getElementById("main-content")
         let ul = document.getElementById('player-placeholder')
         if(ul == null){
              ul = document.createElement('ul')
              ul.class = "players"
             ul.id = 'player-placeholder'
-        main.appendChild(ul)
+            main.appendChild(ul)
       }  else {
             ul.innerHTML = ''
+
         }
-        
         Player.all_players.forEach(function (element) {
-           
+            // debugger
+
             const li =document.createElement('li')
             li.innerText =  (`${element.firstName} ${element.lastName} PPG:(${element.ptsPerGame}) APG: (${element.astPerGame}) RPG (${element.rebPerGame}) FG% (${element.fgPct})`)
            
@@ -57,7 +57,7 @@ class Player {
             ul.appendChild(li) 
             
         })
-        
+
     }
 
     static findPlayer(plyr) {
