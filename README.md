@@ -38,4 +38,6 @@ rails s
 
 Open index.html in your browser
 
+BLOG POST: https://jerkzilla.github.io/js_project_mode
+VIDEO WALKTHROUGH: https://youtu.be/KxSUqAmAgwQ
 
