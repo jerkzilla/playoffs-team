@@ -14,7 +14,7 @@ To get started using this app do the following:
 
 Clone the repository
 
-git clone hgit@github.com:jerkzilla/playoffs-team.git
+git clone 'git@github.com:jerkzilla/playoffs-team.git'
 Navigate to the top of the 'playoffs-team' directory
 
 cd playoffs-team
