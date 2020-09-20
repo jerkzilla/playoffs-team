@@ -73,7 +73,7 @@ function renderAllTeams() {
         console.log(arrObjs)
         const p = document.createElement('p')
         main.appendChild(p)
-        p.innerText = "ALL TEAMS"
+        p.innerText = "CHECK OUT EVERY TEAM SO FAR!"
         arrObjs.forEach(function (element) {
             const ul = document.createElement('ul')
             const h3  =document.createElement('h6')
