@@ -23,7 +23,7 @@ p
 body {
   font-family: impact;
   font-weight: 50;
-   background-image: linear-gradient(skyblue, #ff92a4);
+   background-image: linear-gradient(skyblue, hsl(350, 94%, 69%));
   color: white;
   height: 100%;
 

@@ -8,9 +8,9 @@ document.getElementsByTagName('form')[0].addEventListener
 ('submit', createTeam)
 })
 
-window.onload=function(){
-    document.getElementById("my_audio").play();
-  }
+// window.onload=function(){
+//     document.getElementById("my_audio").play();
+//   }
 
 // refactor inner if block code into own function
 document.addEventListener('click', function(e){
@@ -24,21 +24,6 @@ document.addEventListener('click', function(e){
     
 }) 
 
-function maxTeam() {
-    if (confirm("Submit Team?")) {
-        console.log("Team has been submitted.")
-        players.push(Team.all_teams[0].player_ids)
-        players.push(Team.all_teams[0].name)
-        const yourTeam = Team.all_teams[0]
-        teamConfigBodyCreation(yourTeam)
- } else {
-        console.log("Cancelled submit.")
-      }
-    }    
-
-const team = []
-const players = []
-
 function createTeam(event) {
     event.preventDefault()
     const name = document.getElementById("name").value
@@ -51,13 +36,33 @@ function createTeam(event) {
 function displayTeams(){
     document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
     document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())
-    
     let teamName = Team.all_teams[0].name
         const p =document.createElement('p')
         p.innerText =  " ' "+ teamName + " ' "
-   
         main.appendChild(p)
 }
+
+const players = []
+
+function maxTeam() {
+    if (confirm("Submit Team?")) {
+        console.log("Team has been submitted.")
+        players.push(Team.all_teams[0].player_ids)
+        players.push(Team.all_teams[0].name)
+        const yourTeam = Team.all_teams[0]
+        teamConfigBodyCreation(yourTeam)
+ } else {
+        console.log("Cancelled submit.")
+      }
+    }    
+
+
+    function teamConfigBodyCreation(team){
+        const tObjJS = Team.findTeam('name', team.name)
+        const configBodyObj = {}
+        configBodyObj.team = tObjJS
+           addTeam(configBodyObj)
+       }   
 
 function renderAllTeams() {
     document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
@@ -65,8 +70,6 @@ function renderAllTeams() {
     .then(function(resp) {
         resp.json()
     .then(function(arrObjs) {
-        teams = Team.findTeam('name', team.name)
-
         console.log(arrObjs)
         const p = document.createElement('p')
         main.appendChild(p)
@@ -81,19 +84,15 @@ function renderAllTeams() {
             ul.appendChild(h3)
              
             element.players.forEach(plObj => {
-                // debugger
                 const plImg =document.createElement('img');
                 plImg.setAttribute("src", `${plObj.image_url}`);
-                // a.innerHTML = (`<a href ="${plObj.image_url}" target="_blank" class ="pl_photos"> Photo </a>`)    
               let playerNames =  plObj.firstName + " " + plObj.lastName 
                 const li =document.createElement('li')
                 li.innerText = playerNames
                 li.id = "player-li"
-                
                 li.appendChild(plImg)
                 ul.appendChild(li)
             })     
-                // document.getElementById('create-team').querySelectorAll('*').forEach(n => n.remove())
             main.appendChild(ul)
         })})
         
@@ -101,9 +100,4 @@ function renderAllTeams() {
       })
 }
 
-function teamConfigBodyCreation(team){
- const tObjJS = Team.findTeam('name', team.name)
- const configBodyObj = {}
- configBodyObj.team = tObjJS
-    addTeam(configBodyObj)
-}
+
