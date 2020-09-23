@@ -17,10 +17,12 @@ Clone the repository
 git clone 'git@github.com:jerkzilla/playoffs-team.git'
 Navigate to the top of the 'playoffs-team' directory
 
-cd playoffs-team
+cd playoffs-team-backend
+
 Install required gem dependencies
 
 bundle install
+
 Start a PostgreSQL server in the PostgreSQL app
 
 Download the app at 'https://www.postgresql.org/download/' if you don't have it
