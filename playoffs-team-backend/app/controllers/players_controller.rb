@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   def players_by_ppg
-    @players = Player.where("pts_per_game > ?", params[:ppg_num])
+    @players = Player.where("pts_per_game > ?", params[:ppg_num]).order(pts_per_game: :desc)
     render json: @players
   end
 

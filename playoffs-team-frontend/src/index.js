@@ -66,6 +66,7 @@ function maxTeam() {
 
 function renderAllTeams() {
     document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+
     fetch(TEAMS_URL)
     .then(function(resp) {
         resp.json()

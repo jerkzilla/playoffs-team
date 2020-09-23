@@ -23,11 +23,30 @@ p
 body {
   font-family: impact;
   font-weight: 50;
-   background-image: linear-gradient(skyblue, hsl(350, 94%, 69%));
+   background-image: linear-gradient(skyblue, rgb(245, 92, 117));
   color: white;
   height: 100%;
-
+    -webkit-animation: AnimationName 51s ease infinite;
+    -moz-animation: AnimationName 51s ease infinite;
+    animation: AnimationName 51s ease infinite;
 }
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 
 
 

@@ -21,6 +21,8 @@ function getGoodPlayers() {
 })}
 
 function getGoodPassers() {
+    document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+
     fetch(PLAYERS_URL + 'players_by_apg/5')
     .then(function(resp) {
         resp.json()
@@ -43,6 +45,8 @@ function getGoodPassers() {
   })}
 
   function getGoodRebounders() {
+    document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+
     fetch(PLAYERS_URL + 'players_by_rpg/5')
     .then(function(resp) {
         resp.json()
@@ -64,6 +68,8 @@ function getGoodPassers() {
   })}
   
   function getEfficientShooters() {
+    document.getElementById('main-content').querySelectorAll('*').forEach(n => n.remove())
+
     fetch(PLAYERS_URL + 'players_by_fgp/45')
     .then(function(resp) {
         resp.json()
