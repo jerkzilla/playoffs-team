@@ -24,16 +24,20 @@ bundle install
 Start a PostgreSQL server in the PostgreSQL app
 
 Download the app at 'https://www.postgresql.org/download/' if you don't have it
-Create the database
+
+Create the database: 
 rake db:create
 
-Migrate the tables
+Migrate the tables:  
+
 rake db:migrate
 
-Seed the database with brand new, up-to-date NBA stats and data
+Seed the database with brand new, up-to-date NBA stats and data: 
+
 rake db:seed
 
-Start your rails server
+Start your rails server: 
+
 rails s
 
 Open index.html in your browser
