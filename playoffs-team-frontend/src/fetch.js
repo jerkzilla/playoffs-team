@@ -17,6 +17,23 @@ function getGoodPlayers() {
             new Player (firstName, lastName, id, ptsPerGame, astPerGame, rebPerGame, fgPct, imgUrl)
       })
       Player.displayPlayers()
+      const button = document.createElement('button')
+            button.id = "alph-players"
+            button.innerText = "Alphabetize"
+            main.appendChild(button) 
+            button.addEventListener('click', function(e) {
+                
+                Player.all_players.sort(function (a, b) {
+                    if (a.lastName < b.lastName) {
+                        return -1;
+                    }
+                    if (a.lastName > b.lastName) {
+                        return 1;
+                    }
+                    return 0;
+                })
+                Player.displayPlayers()
+    } )
   })
 })}
 

@@ -24,6 +24,8 @@ document.addEventListener('click', function(e){
     
 }) 
 
+
+
 function createTeam(event) {
     event.preventDefault()
     const name = document.getElementById("name").value
