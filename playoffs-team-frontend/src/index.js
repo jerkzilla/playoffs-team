@@ -1,4 +1,4 @@
-const BASE_URL = "http://https://nba-top-5.herokuapp.com/"
+const BASE_URL = "https://nba-top-5.herokuapp.com/"
 const TEAMS_URL = `${BASE_URL}/teams/`
 const PLAYERS_URL = `${BASE_URL}/players/`
 const main = document.getElementById("main-content")
