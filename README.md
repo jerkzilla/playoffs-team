@@ -1,4 +1,6 @@
 # playoffs-team
+Site is live here:https://ecstatic-keller-52ad10.netlify.app/
+
 Playoffs-Team allows users to browse current NBA postseason stats to create and compare TOP 5 lineups by category.
 
 This app utilizes a Rails API back-end with a PostgreSQL database, as well as a Javascript front-end.
