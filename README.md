@@ -1,6 +1,10 @@
 # playoffs-team
+<<<<<<< HEAD
 
 This app is now live: https://ecstatic-keller-52ad10.netlify.app/
+=======
+Site is live here:https://ecstatic-keller-52ad10.netlify.app/
+>>>>>>> 283e284d0311d399b3647e7f18f9480ed06a7f54
 
 Playoffs-Team allows users to browse current NBA postseason stats to create and compare TOP 5 lineups by category.
 
