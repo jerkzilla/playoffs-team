@@ -15,7 +15,7 @@
 
 
 # byebug
-url = "http://#{ENV['API_KEY']}:MYSPORTSFEEDS@api.mysportsfeeds.com/v2.1/pull/nba/current/player_stats_totals.json"
+url = "http://#{ENV['API_KEY']}:MYSPORTSFEEDS@api.mysportsfeeds.com/v2.1/pull/nba/2020-playoff/player_stats_totals.json"
 
 info = HTTParty.get(url)
  
